@@ -1,11 +1,5 @@
-curl -sfL https://get.k3s.io | sh -
-
 #!/bin/bash
 set -e
-
-
-# Script de instalação do k3s
-# https://docs.k3s.io/
 
 # Copia o config.yaml customizado para o local correto antes da instalação
 if [ -f "$(dirname "$0")/config.yaml" ]; then
@@ -19,6 +13,9 @@ fi
 if command -v k3s >/dev/null 2>&1; then
   echo "[INFO] k3s já está instalado. Pulando instalação."
 else
+  # Script de instalação do k3s
+  # https://docs.k3s.io/
+
   echo "[INFO] Instalando k3s..."
   curl -sfL https://get.k3s.io | sh -
 fi
